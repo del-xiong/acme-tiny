@@ -9,7 +9,7 @@
  通过openssl创建key，当然你也可以用2048(推荐，速度快)
  ```
  openssl genrsa 2048 > account.key
- or
+ #or
  openssl genrsa 4096 > account.key
  ```
  - 为你的域名创建证书
@@ -35,6 +35,7 @@ mkdir -p /var/rootpath/.well-known/acme-challenge/
 #注意如果是nginx服务器并且配置文件含有location ~ /\.的先暂时注释掉才能访问.开头的文件夹
 #然后执行命令
 python acme_tiny.py --account-key ./account.key --csr ./domain.csr --acme-dir /var/rootpath/.well-known/acme-challenge/ > ./signed.crt
+#如果找不到argparse则直接安装 python-argparse即可
 ```
 
  - 配置证书
